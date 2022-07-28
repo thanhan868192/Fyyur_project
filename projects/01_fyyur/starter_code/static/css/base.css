@@ -1,0 +1,8 @@
+a.delete-item{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+li {
+    display: flex
+}
