@@ -301,27 +301,27 @@ def show_venue(venue_id):
         .filter(Venue.id == venue_id, Show.start_time < datetime.now()).all()
 
     if(len(upcoming_shows) > 0):
-        for usItem in upcoming_shows:
-            artist = Artist.query.get(usItem.id)
+        for item in upcoming_shows:
+            artist = Artist.query.get(item.id)
             venueById.upcoming_shows.append(
                 {
                     "artist_id": artist.id,
                     "artist_name": artist.name,
                     "artist_image_link": artist.image_link,
-                    "start_time": usItem.start_time.strftime("%Y/%m/%d"),
+                    "start_time": item.start_time.strftime("%Y/%m/%d"),
                 }
             )
             venueById.upcoming_shows_count = len(upcoming_shows)
 
     if(len(past_shows) > 0):
-        for psItem in past_shows:
-            artist = Artist.query.get(psItem.id)
+        for item in past_shows:
+            artist = Artist.query.get(item.id)
             venueById.upcoming_shows.append(
                 {
                     "artist_id": artist.id,
                     "artist_name": artist.name,
                     "artist_image_link": artist.image_link,
-                    "start_time": psItem.start_time.strftime("%Y/%m/%d"),
+                    "start_time": item.start_time.strftime("%Y/%m/%d"),
                 }
             )
             venueById.past_shows_count = len(past_shows)
@@ -557,27 +557,27 @@ def show_artist(artist_id):
         .filter(Artist.id == artist_id, Show.start_time < datetime.now()).all()
 
     if(len(upcoming_shows) > 0):
-        for usItem in upcoming_shows:
-            artist = Artist.query.get(usItem.artist_id)
+        for item in upcoming_shows:
+            artist = Artist.query.get(item.artist_id)
             artistById.upcoming_shows.append(
                 {
                     "artist_id": artist.id,
                     "artist_name": artist.name,
                     "artist_image_link": artist.image_link,
-                    "start_time": usItem.start_time.strftime("%Y/%m/%d"),
+                    "start_time": item.start_time.strftime("%Y/%m/%d"),
                 }
             )
             artistById.upcoming_shows_count = len(upcoming_shows)
 
     if(len(past_shows) > 0):
-        for psItem in past_shows:
-            artist = Artist.query.get(psItem.artist_id)
+        for item in past_shows:
+            artist = Artist.query.get(item.artist_id)
             artistById.past_shows.append(
                 {
                     "artist_id": artist.id,
                     "artist_name": artist.name,
                     "artist_image_link": artist.image_link,
-                    "start_time": psItem.start_time.strftime("%Y/%m/%d"),
+                    "start_time": item.start_time.strftime("%Y/%m/%d"),
                 }
             )
             artistById.past_shows_count = len(past_shows)
